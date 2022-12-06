@@ -1,0 +1,266 @@
+:root {
+  --main-color: #004494;
+  --grey-color: #f1f1f1;
+  --white-color: #ffffff;
+  --text-color: #01316c;
+  --secondary-text-color: #9a9a9a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background: var(--grey-color);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.header {
+  width: 100%;
+  height: 3em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: #004494;
+  color: var(--white-color);
+}
+
+.header-back-btn {
+  background-image: url("../public/back-30.png");
+  background-repeat: no-repeat;
+  /*background-position: left;*/
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  border: 0;
+  cursor: pointer;
+  margin: 0 1.5em;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  width: 70%;
+  padding: 15px;
+  margin: 0 auto;
+
+  background: var(--white-color);
+  border: 1px solid var(--grey-color);
+  -webkit-box-shadow: 0px 0px 60px 13px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 0px 60px 13px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 0px 60px 13px rgba(34, 60, 80, 0.2);
+  border-radius: 5px;
+}
+
+.card h4 {
+  margin: 12px;
+  color: var(--secondary-text-color)
+}
+
+/*.user-info-title {*/
+/*  margin: 20px;*/
+/*}*/
+
+.row-info {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  flex-direction: row;
+}
+
+.row-info img {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+}
+
+.secondary-text {
+  font-size: 11px;
+}
+
+.main-text {
+  font-size: 15px;
+}
+
+h3 {
+  margin: 30px;
+  align-content: center;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.change-btn {
+  width: 100%;
+  height: 3em;
+  position: fixed;
+  bottom: 0;
+  margin-top: 30px;
+  border: 0;
+  font-size: 1em;
+  font-weight: 500;
+  background: var(--white-color);
+  color: var(--main-color);
+  cursor: pointer;
+}
+
+.save-btn {
+  width: 100%;
+  height: 3em;
+  position: fixed;
+  bottom: 0;
+  margin-top: 30px;
+  border: 0;
+  font-size: 1em;
+  font-weight: 500;
+  background: var(--main-color);
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+.add-btn {
+  width: 100%;
+  height: 3em;
+  border: 0;
+  border-top: 1px solid var(--grey-color);
+  font-size: 1em;
+  font-weight: 500;
+  background: var(--white-color);
+  color: var(--main-color);
+  cursor: pointer;
+}
+.settings {
+  display: flex;
+  flex-direction: column;
+
+  width: 70%;
+  margin: 0 auto;
+}
+
+.linked-cards-title {
+  margin: 15px 10px;
+  color: var(--main-color)
+}
+
+.linked-cards-wrapper {
+  background: var(--white-color);
+}
+
+.card-choose {
+  margin-left: 6em;
+}
+
+.visible {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+.loader {
+  background: var(--white-color);
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  align-content: center;
+}
+
+.loader-img {
+  width: 5em;
+  margin: 40%;
+}
+
+.status {
+  /*background: linear-gradient(to bottom, var(--main-color), rgba(246, 247, 252, 0.57));*/
+  background: var(--main-color);
+  height: 50vh;
+}
+
+.status-block {
+  text-align: center;
+  color: var(--white-color);
+}
+
+.status-img {
+  width: 60px;
+  margin-top: 2em;
+  text-align: center;
+}
+
+.status-text {
+  width: 80%;
+  margin: 0 auto;
+  padding: 0 0 20px 0;
+}
+
+.status-title {
+  color: var(--white-color);
+  margin: 10px 0;
+}
+
+.dialog-window {
+  width: 100vw;
+  height: 10vh;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+  /*width: 60%;*/
+  /*margin: 150px auto 0;*/
+  /*-webkit-box-shadow: 0px 0px 60px 13px rgba(34, 60, 80, 0.2);*/
+  /*-moz-box-shadow: 0px 0px 60px 13px rgba(34, 60, 80, 0.2);*/
+  box-shadow: 0px 0px 60px 13px rgba(34, 60, 80, 0.2);
+}
+
+.dialog-window.active {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.dialog-window-content {
+  padding: 10px;
+  width: 50vw;
+  background: var(--white-color);
+  transform: scale(0.5);
+  transition: 0.4s all;
+}
+
+.dialog-window-content.active {
+  transform: scale(1);
+}
+
+.dialog-footer {
+  display: flex;
+  align-items: flex-end;
+  /*justify-content: space-around;*/
+}
+
+.apply-btn {
+  padding: 5px 10px;
+}
+
+.cancel-btn {
+  padding: 5px 10px;
+}
