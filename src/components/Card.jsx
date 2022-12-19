@@ -46,12 +46,12 @@ export const LinkedCards = ({isAbleToChoose, userList}) => {
                         <p className="secondary-text">{userCardInfo}</p>
                     </div>
                     <div className={`card-choose ${isAbleToChoose ? 'visible' : 'hidden'}`}>
-                        <input type="radio" />
+                        <input type="radio" name="card" />
                     </div>
                 </div>
-                <div className={`${isAbleToChoose ? 'visible' : 'hidden'}`}>
-                    <button className="add-btn" onClick={addBtnHandler}>ADD NEW CARD</button>
-                </div>
+                {/*<div className={`${isAbleToChoose ? 'visible' : 'hidden'}`}>*/}
+                {/*    <button className="add-btn" onClick={addBtnHandler}>ADD NEW CARD</button>*/}
+                {/*</div>*/}
             </div>
         )
 // )

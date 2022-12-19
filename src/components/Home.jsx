@@ -3,14 +3,15 @@ import React from 'react';
 import Header from "./Header";
 import Card from "./Card"
 import {Link} from "react-router-dom";
+import Registration from "./Registration";
+// import Loader from "./Loader";
+// import Registration from "./Registration";
 
-
-const Home = () => {
+const HomePage = () => {
     const title = "Home";
     const changeBtnHandler = () => {
         console.log('click on change!')
     }
-
     return (
         <div>
             <Header title={title} />
@@ -25,6 +26,20 @@ const Home = () => {
                 </Link>
             </footer>
         </div>
+    )
+}
+
+const Home = () => {
+
+    const isUserRegistered = true;
+    return (
+        // <Loader />
+        // <Registration />
+        <>
+        {
+            isUserRegistered ? <HomePage /> : <Registration />
+        }
+        </>
     );
 };
 
