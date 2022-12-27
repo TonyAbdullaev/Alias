@@ -1,12 +1,17 @@
-import React, {useState} from 'react';
-import Header from "./Header";
+import React, {useContext, useState} from 'react';
 import {LinkedCards, UserInfo} from "./Card";
-import DialogWindow from "./DialogWindow";
+import {DialogWindow, Header} from "./components";
+import AppContext from "../context";
+import Loader from "./Loader";
+import {Navigate, useNavigate} from "react-router-dom";
+import axios from "axios";
+import {createAlias} from "../controlers/isSigned";
 
 const Settings = () => {
     const title = "Settings";
-
+    const { isLoading, phoneNumber, cards } = useContext(AppContext);
     const [isActive, setActive] = useState(false);
+
 
     const userList = [
         {
@@ -28,6 +33,7 @@ const Settings = () => {
             cardType: 'Visa Debit'
         },
     ];
+
     const applyHandler = () => {
         console.log("Apply");
         setActive(false);
@@ -37,9 +43,17 @@ const Settings = () => {
         setActive(false);
     };
 
-    // const saveBtnHandler = () => setActive(true);
+    const saveBtnHandler = async () => {
+        try {
+            const updateAlias = createAlias({...cards, alias: phoneNumber})
+            console.log("UP: ",updateAlias)
+        } catch (error) {
+            alert(error)
+        }
+    };
 
     return (
+        isLoading ? <Loader /> :
         <div>
             <Header title={title} />
             <div className="settings">
@@ -60,7 +74,7 @@ const Settings = () => {
                 </footer>
             </DialogWindow>
             <footer>
-                <button className="save-btn" onClick={() => setActive(!isActive)}>SAVE</button>
+                <button className="save-btn" onClick={saveBtnHandler}>SAVE</button>
             </footer>
         </div>
     );

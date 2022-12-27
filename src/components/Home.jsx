@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Header from "./Header";
+import {Header} from "./components";
 import Card from "./Card"
-import {Link} from "react-router-dom";
-import Registration from "./Registration";
+import {Link, useLocation} from "react-router-dom";
+import Login from "./Login";
 // import Loader from "./Loader";
 // import Registration from "./Registration";
 
@@ -36,9 +36,9 @@ const Home = () => {
         // <Loader />
         // <Registration />
         <>
-        {
-            isUserRegistered ? <HomePage /> : <Registration />
-        }
+            {
+                isUserRegistered ? <HomePage /> : <Login />
+            }
         </>
     );
 };
