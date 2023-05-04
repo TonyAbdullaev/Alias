@@ -1,8 +1,5 @@
 const path = require('path');
-// const  {CleanWebpackPlugin} = require('clean-webpack-plugin');
-// очищает неиспользующие банделы
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-// перености наш html в dist и импортирует в него все js банделы(которые собирает webpack)
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -17,9 +14,6 @@ module.exports = {
     target,
     devtool,
     entry: ["@babel/polyfill", "/src/index.jsx"],
-    // entry: ["@babel/polyfill", path.resolve((__dirname, 'index.jsx'))],
-
-    // result of run webpack
     output: {
         path: path.resolve(__dirname, "dist"),
         clean: true,
@@ -55,16 +49,6 @@ module.exports = {
                 test: /\.(jpg|jpeg|png|svg)$/i,
                 use: ["file-loader"]
             },
-            // {
-            //     test: /\.m?js$/i,
-            //     exclude: /(node_modules|bower_components)/,
-            //     use: {
-            //         loader: 'babel-loader',
-            //         options: {
-            //             presets: ['@babel/preset-env']
-            //         }
-            //     }
-            // },
             {
                 test: /\.jsx$/i,
                 exclude: /(node_modules|bower_components)/,

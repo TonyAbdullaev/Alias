@@ -61,6 +61,10 @@ code {
   background: var(--main-color);
 }
 
+.remove-btn {
+  border: none;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -80,18 +84,39 @@ code {
   color: var(--secondary-text-color)
 }
 
-/*.user-info-title {*/
-/*  margin: 20px;*/
-/*}*/
-
-.row-info {
+.user-info-row {
   display: flex;
   align-items: center;
   margin: 5px 0;
   flex-direction: row;
 }
 
-.row-info img {
+.user-info-row-hell {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  justify-content: space-between;
+}
+
+.user-info-row img {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+}
+
+.card-info-row {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  flex-direction: row;
+  /*border-bottom: 1px solid #bebebe;*/
+}
+
+.card-info {
+  display: flex;
+}
+
+.card-info-row img {
   width: 30px;
   height: 30px;
   margin: 0 10px;
@@ -103,6 +128,18 @@ code {
 
 .main-text {
   font-size: 15px;
+}
+
+.remove-part {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+.remove-text {
+  font-size: 11px;
+  color: var(--main-color);
+  font-weight: bold;
 }
 
 h3 {
@@ -129,7 +166,8 @@ h3 {
 .save-btn {
   width: 100%;
   height: 3em;
-  position: fixed;
+  position: absolute;
+  left: 0;
   bottom: 0;
   margin-top: 30px;
   border: 0;
@@ -155,7 +193,7 @@ h3 {
   display: flex;
   flex-direction: column;
 
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -168,8 +206,10 @@ h3 {
   background: var(--white-color);
 }
 
-.card-choose {
-  margin-left: 6em;
+.card-choose-btn {
+  justify-content: flex-end;
+  flex: 2;
+  margin-right: 20px;
 }
 
 .visible {
@@ -325,4 +365,55 @@ h3 {
 .reg-content-text {
   font-size: 14px;
   color: var(--text-color);
+}
+
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.primary-btn {
+  width: 100%;
+  height: 3em;
+  font-size: 1em;
+  font-weight: 500;
+  border: 0;
+  background: var(--main-color);
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+.secondary-btn {
+  width: 100%;
+  height: 3em;
+  font-size: 1em;
+  font-weight: 500;
+  border: 0;
+  background: var(--white-color);
+  color: var(--main-color);
+  cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  font-weight: 600;
+  color: #0065d3;
+}
+
+.small-primary-btn {
+  padding: 10px;
+  margin: 0 10px 0 0;
+  border: 2px solid var(--main-color);
+  background: var(--main-color);
+  color: var(--white-color);
+}
+
+.small-secondary-btn {
+  padding: 10px;
+  margin: 0 10px 0 0;
+  border: 2px solid var(--main-color);
+  background: var(--white-color);
+  color: var(--main-color);
 }

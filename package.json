@@ -34,7 +34,7 @@
     "start": "react-scripts start",
     "build-dev": "webpack",
     "build-prod": "webpack --node-env=production",
-    "build": "react-scripts build",
+    "build": "env-cmd 0f .env react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "clear": "rd /s /q dist"

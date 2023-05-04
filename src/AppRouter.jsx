@@ -1,60 +1,40 @@
-import React, {useEffect, useState} from 'react';
-import {Route, Routes, Navigate} from "react-router-dom";
-import axios from "axios";
-import {useDispatch, useSelector} from "react-redux";
+import React from 'react';
+import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
 
-import Home from "./components/Home";
-import Settings from "./components/Settings";
-import Status from "./components/Status";
-import Login from "./components/Login";
-import {HOME_ROUTE, LOGIN_ROUTE, SETTINGS_ROUTE, STATUS_ROUTE} from "./constants/constants";
+import Home from "./pages/Home/Home";
+import Status from "./pages/Status/Status";
+import Login from "./pages/Login/Login";
+import {InitialPage} from "./pages/InitialPage"
+import {Settings} from "./pages/Settings/Settings";
+import Confirm from "./pages/Confirm/Confirm";
+import NotFound from "./pages/NotFound/NotFound";
+
+import {Layout, LayoutLoader} from "./components/Layout";
+
+import {
+    HOME_ROUTE,
+    SETTINGS_ROUTE,
+    STATUS_ROUTE,
+    LOGIN_ROUTE,
+    ERROR_ROUTE,
+    CONFIRM_ROUTE
+} from "./constants/constants";
+
+const router = createBrowserRouter(createRoutesFromElements(
+    <Route path="/" element={<Layout />} loader={LayoutLoader} errorElement={<NotFound />}>
+        <Route index element={<InitialPage />}/>
+        <Route path={HOME_ROUTE} element={<Home  />}/>
+        <Route path={SETTINGS_ROUTE} element={<Settings />} />
+        <Route path={STATUS_ROUTE} element={<Status />} />
+        <Route path={LOGIN_ROUTE} element={<Login />} />
+        <Route path={CONFIRM_ROUTE} element={<Confirm />} />
+        <Route path={ERROR_ROUTE} element={<NotFound />} />
+    </Route>
+));
 
 const AppRouter = () => {
-    const dispatch = useDispatch();
-    const [isSign, setSign] = useState(false);
-    const [hasGotCards, setGotCards] = useState(false);
-    // get phoneNumber
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const phoneNumber = urlParams.get('userPhone');
-
-
-    useEffect(() => {
-        (async function fetchData() {
-            try {
-                const {data} = await axios.post('http://localhost:3333/getVisaCards', {"userPhone": phoneNumber });
-                const {status} = await axios.post('http://localhost:3333/resolve', {"alias": phoneNumber });
-                const guid = data.map(item => item.guid);
-                dispatch();
-                console.log("ASBT: ", data);
-                console.log("Alias: ", status);
-                console.log("GUID: ", guid);
-            } catch (error) {
-                alert("error")
-                console.log(error)
-            }
-        }());
-    }, [null]);
-    // const cards = useSelector(cards => cards);
-
     return (
-        <div>
-            <Routes>
-                <Route path={HOME_ROUTE} render={
-                    () => {
-
-                        const isUserRegistered = false;
-                        return isUserRegistered ? <Home /> : <Login />
-
-                    }
-                }>
-                    <Route index path={HOME_ROUTE} element={<Home />}/>
-                    <Route path={SETTINGS_ROUTE} element={<Settings />} />
-                    <Route path={STATUS_ROUTE} element={<Status />} />
-                    <Route path={LOGIN_ROUTE} element={<Login />} />
-                </Route>
-            </Routes>
-        </div>
+        <RouterProvider router={router} />
     );
 };
 

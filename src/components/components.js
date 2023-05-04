@@ -1,7 +1,8 @@
 import React from 'react';
-import WarningSvg from "../imgs/warning.svg";
 import { useNavigate } from 'react-router-dom';
-import BackBtn from "../imgs/back.png"
+import WarningSvg from "../imgs/warning.svg";
+import LoaderSvg from "../imgs/small-loading.svg";
+import BackBtn from "../imgs/back.png";
 
 export const ErrorPage = ({children}) => {
     return (
@@ -26,7 +27,6 @@ export const DialogWindow = ({isActive, setActive, children}) => {
 };
 
 export const Header = ({title}) => {
-
     const navigate = useNavigate();
 
     return (
@@ -42,3 +42,24 @@ export const Header = ({title}) => {
         </div>
     );
 };
+
+export const Loader = () => {
+    return (
+        <div className="loader">
+            <div className="content-loader">
+                <img className="loader-img" src={LoaderSvg} alt="Loader" />
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+    );
+};
+
+export const Footer = ({children}) => {
+   return (
+       <div className="footer">
+           {children}
+       </div>
+   )
+};
+
+

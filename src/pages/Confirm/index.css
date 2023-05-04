@@ -1,0 +1,8 @@
+.confirm-text {
+    margin: 30px;
+    color: #3a3a3a;
+}
+
+button:disabled {
+    opacity: 0.5;
+}
